@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TypeController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -28,3 +29,14 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/home', function () {
 Route::get('/test', function () {
     return view('admin.dashboard.index');
 });
+Route::resource('type','TypeController');
+
+Route::get('\type'. [TypeController::class, 'index']);
+Route::get('/post', function () {
+    return view('post');
+});
+
+// Route::get('/type', function () {
+//     return view('type');
+// });
+Route::get('/type/{slug}', 'FrontEndController@type')->name('website.type');
